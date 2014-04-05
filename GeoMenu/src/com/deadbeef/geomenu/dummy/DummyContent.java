@@ -28,6 +28,7 @@ public class DummyContent {
         addItem(new DummyItem("1", "Item 1"));
         addItem(new DummyItem("2", "Item 2"));
         addItem(new DummyItem("3", "Item 3"));
+        addItem(new DummyItem("4", "Maude's", "(515) 555-5555", "www.bestrestauranteva.com", "-47.568, 97.126"));
     }
 
     private static void addItem(DummyItem item) {
@@ -41,15 +42,31 @@ public class DummyContent {
     public static class DummyItem {
         public String id;
         public String content;
+        public String phone;
+        public String web;
+        public String geo;
 
         public DummyItem(String id, String content) {
             this.id = id;
             this.content = content;
         }
+        
+        public DummyItem(String id, String content, String phone, String web, String geo) {
+            this.id = id;
+            this.content = content;
+            this.phone = phone;
+            this.web = web;
+            this.geo = geo;
+        }
 
         @Override
         public String toString() {
-            return content;
+        	if(phone != null){
+            return content +"\n" + phone + "\n" + web + "\n" + geo;
+        	}
+        	else{
+        		return content;
+        	}
         }
     }
 }

@@ -8,21 +8,21 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import android.os.AsyncTask;
+
 
 public class RestaurantList {
 	
 	private Document doc;
-	private ArrayList<RestListItem> restaurants = new ArrayList<RestListItem>();
+	private ArrayList<RestListItem> restaurants;
 	
 	//Goes to the default page, which is no filters and sorting by distance
-	public RestaurantList(String latitude, String longitude){		
-		try {
-			doc = Jsoup.connect("http://www.allmenus.com/custom-results/lat/" + latitude + "/long/" + longitude + "/&filters=none?sort=distance&").get();
-		} catch (IOException e) {
-			System.out.println("There was an error while getting the restaurant list.");
-			e.printStackTrace();//???
-		}
-		populateRestaurants();
+	public RestaurantList(String latitude, String longitude){	
+		
+		//Opens webpage and parses
+		fetcher temp = new fetcher();
+		temp.execute("http://www.allmenus.com/custom-results/lat/" + latitude + "/long/" + longitude + "/&filters=none?sort=distance&");
+		//restaurants = temp.getRestaurants();
 	}
 	
 	private void populateRestaurants() {
@@ -92,4 +92,22 @@ public class RestaurantList {
 		return temp = new Menu();
 		return null;
 	}*/
+	
+	public class fetcher extends AsyncTask<String, String, Void> {
+		
+		protected void onPostExecute(Void result) {
+		
+		}
+		
+		protected Void doInBackground(String... params) {
+			Document doc = null;
+			try {
+				doc = Jsoup.connect(params.toString()).get();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
+	}
 }

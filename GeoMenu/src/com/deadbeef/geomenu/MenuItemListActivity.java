@@ -205,6 +205,8 @@ public class MenuItemListActivity extends FragmentActivity
     public void onConnected(Bundle dataBundle) {
         // Display the connection status
         Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
+        loc = loc_client.getLastLocation();
+        Toast.makeText(this, loc.getLatitude()+ "," +loc.getLongitude(),Toast.LENGTH_LONG).show();
 
     }
     

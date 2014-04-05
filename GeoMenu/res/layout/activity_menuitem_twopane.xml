@@ -24,15 +24,9 @@
     <fragment
         android:id="@+id/menuitem_list"
         android:name="com.deadbeef.geomenu.MenuItemListFragment"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         tools:layout="@android:layout/list_content" />
-
-    <FrameLayout
-        android:id="@+id/menuitem_detail_container"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="3" />
 
 </LinearLayout>

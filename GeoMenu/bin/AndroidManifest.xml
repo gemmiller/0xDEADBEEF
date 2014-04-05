@@ -24,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.deadbeef.geomenu.ListActivity"></activity>
         <activity
             android:name="com.deadbeef.geomenu.MenuItemDetailActivity"
             android:label="@string/title_menuitem_detail"

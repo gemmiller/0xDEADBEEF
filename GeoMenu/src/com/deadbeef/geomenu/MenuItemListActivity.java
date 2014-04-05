@@ -198,25 +198,12 @@ public class MenuItemListActivity extends FragmentActivity
      */
     @Override
     public void onItemSelected(String id) {
-        if (mTwoPane) {
-            // In two-pane mode, show the detail view in this activity by
-            // adding or replacing the detail fragment using a
-            // fragment transaction.
-            Bundle arguments = new Bundle();
-            arguments.putString(MenuItemDetailFragment.ARG_ITEM_ID, id);
-            MenuItemDetailFragment fragment = new MenuItemDetailFragment();
-            fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.menuitem_detail_container, fragment)
-                    .commit();
-
-        } else {
+       
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
-            Intent detailIntent = new Intent(this, MenuItemDetailActivity.class);
+            Intent detailIntent = new Intent(this, ListActivity.class);
             detailIntent.putExtra(MenuItemDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
-        }
     }
     
     /*

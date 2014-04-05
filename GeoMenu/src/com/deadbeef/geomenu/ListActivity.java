@@ -6,6 +6,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
@@ -23,6 +24,8 @@ public class ListActivity extends Activity {
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    ArrayList<View> liked;
+    ArrayList<View> notliked;
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,8 @@ public class ListActivity extends Activity {
  
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
- 
+        liked = new ArrayList<View>();
+        notliked = new ArrayList<View>();
         // preparing list data
         prepareListData();
  
@@ -40,6 +44,31 @@ public class ListActivity extends Activity {
  
         // setting list adapter
         expListView.setAdapter(listAdapter);
+        expListView.setOnChildClickListener(new OnChildClickListener() {
+        	 
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                    int groupPosition, int childPosition, long id) {
+                	if(!liked.contains(v)&&!notliked.contains(v))
+                	{
+                		v.setBackgroundColor(Color.GREEN);
+                		liked.add(v);
+        				
+                	}
+                	else if(!notliked.contains(v))
+                	{
+                		v.setBackgroundColor(Color.RED);
+                		liked.remove(v);
+                		notliked.add(v);
+                	}
+                	else
+                	{
+                		v.setBackgroundColor(Color.WHITE);
+                		notliked.remove(v);
+                	}
+                return false;
+            }
+        });
     }
     
     @Override

@@ -22,7 +22,11 @@ public class RestaurantList {
 		//Opens webpage and parses
 		fetcher temp = new fetcher();
 		temp.execute("http://www.allmenus.com/custom-results/lat/" + latitude + "/long/" + longitude + "/&filters=none?sort=distance&");
-		//restaurants = temp.getRestaurants();
+		restaurants = temp.getRestaurants();
+	}
+	
+	private ArrayList<RestListItem> getrestaurants() {
+		return restaurants;
 	}
 	
 	private void populateRestaurants() {
@@ -50,9 +54,7 @@ public class RestaurantList {
 		}
 	}
 	
-	private ArrayList<RestListItem> getrestaurants() {
-		return restaurants;
-	}
+
 	
 	/*
 	private Menu getRestaurantMenu(int selection) {
@@ -99,6 +101,11 @@ public class RestaurantList {
 		
 		}
 		
+		public ArrayList<RestListItem> getRestaurants() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
 		protected Void doInBackground(String... params) {
 			Document doc = null;
 			try {

@@ -94,39 +94,119 @@ public class ListActivity extends Activity {
     private void prepareListData(String key) {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
-        
-        // Adding child data
-        listDataHeader.add(key);
-        listDataHeader.add("Now Showing");
-        listDataHeader.add("Coming Soon..");
- 
-        // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
- 
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("The Conjuring");
-        nowShowing.add("Despicable Me 2");
-        nowShowing.add("Turbo");
-        nowShowing.add("Grown Ups 2");
-        nowShowing.add("Red 2");
-        nowShowing.add("The Wolverine");
- 
-        List<String> comingSoon = new ArrayList<String>();
-        comingSoon.add("2 Guns");
-        comingSoon.add("The Smurfs 2");
-        comingSoon.add("The Spectacular Now");
-        comingSoon.add("The Canyons");
-        comingSoon.add("Europa Report");
- 
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), nowShowing);
-        listDataChild.put(listDataHeader.get(2), comingSoon);
+        Integer newKey = Integer.parseInt(key);
+        switch(newKey) {
+        case 1:
+        	
+        	// Adding child data
+            listDataHeader.add("Bar-B-Q Sandwhiches");
+            listDataHeader.add("Dinners");
+            listDataHeader.add("Family Pack");
+            
+            
+        	List<String> bbqSandwhiches = new ArrayList<String>();
+            bbqSandwhiches.add("Beef");
+            bbqSandwhiches.add("Pork");
+            bbqSandwhiches.add("Ham");
+            bbqSandwhiches.add("Turkey");
+            bbqSandwhiches.add("Combo");
+             
+            List<String> bbqDinners = new ArrayList<String>();
+            bbqDinners.add("Sliced Beef");
+            bbqDinners.add("Sliced Pork");
+            bbqDinners.add("Sliced Ham");
+            bbqDinners.add("Spare Ribs");
+            bbqDinners.add("Two Meats");
+            bbqDinners.add("Rib Tips");
+            bbqDinners.add("Chicken");
+     
+            List<String> familyPack = new ArrayList<String>();
+            familyPack.add("Spare Ribs");
+            familyPack.add("Sliced Beef");
+            familyPack.add("Sliced Pork");
+            familyPack.add("Sliced Ham");
+            
+            listDataChild.put(listDataHeader.get(0), bbqSandwhiches); // Header, Child data
+            listDataChild.put(listDataHeader.get(1), bbqDinners);
+            listDataChild.put(listDataHeader.get(2), familyPack);
+        break;
+        case 2:
+        	// Adding child data
+            listDataHeader.add("Salads and Soups");
+            listDataHeader.add("Specials");
+            listDataHeader.add("Lunches");
+     
+            // Adding child data
+            List<String> top250 = new ArrayList<String>();
+            top250.add("Half Sandwich");
+            top250.add("Salad Nicoise");
+            top250.add("Printers Salad");
+     
+            List<String> nowShowing = new ArrayList<String>();
+            nowShowing.add("Quiche");
+            nowShowing.add("Pan Seared Salmon");
+            nowShowing.add("B.L.T.");
+     
+            List<String> comingSoon = new ArrayList<String>();
+            comingSoon.add("Ham Reuben");
+            comingSoon.add("Maude's Burger");
+            comingSoon.add("French Dip");
+            
+            listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
+            listDataChild.put(listDataHeader.get(1), nowShowing);
+            listDataChild.put(listDataHeader.get(2), comingSoon);
+        break;
+        case 3:
+        	// Adding child data
+            listDataHeader.add("Appetizers");
+            listDataHeader.add("Soup and Salad");
+            listDataHeader.add("Dessert ");
+        	List<String> APPETIZERS = new ArrayList<String>();
+            APPETIZERS.add("BRASILIAN FRIES");
+            APPETIZERS.add("CHICKEN STRIPS (3) WITH FRIES");
+            APPETIZERS.add("MOZZARELLA STICKS");
+            APPETIZERS.add("CHEESE EMPANDADS (2)");
+            APPETIZERS.add("CHEESE & JALAPENO CHICKEN");
+            APPETIZERS.add("JALAPENO POPPERS");
+     
+            List<String> SALADSOUPS = new ArrayList<String>();
+            SALADSOUPS.add("CHICKEN SALAD");
+            SALADSOUPS.add("HEART OF ARTICHOKE SALAD");
+            SALADSOUPS.add("SNIJED CGUCJEB SALAD SANDWICH");
+            SALADSOUPS.add("BLACK BEAN SOUP / SOUP FO THE DAY");
+     
+            List<String> DESSERT = new ArrayList<String>();
+            DESSERT.add("CHOCOLATE CONFUSION CAKE");
+            DESSERT.add("NEW YORK CHEESECAKE");
+            DESSERT.add("TIRAMISU");
+     
+            listDataChild.put(listDataHeader.get(0), APPETIZERS); // Header, Child data
+            listDataChild.put(listDataHeader.get(1), SALADSOUPS);
+            listDataChild.put(listDataHeader.get(2), DESSERT);
+        	break;
+        case 4:
+        	// Adding child data
+            listDataHeader.add("Drinks");
+            listDataHeader.add("Starters");
+            listDataHeader.add("Dinners");
+            List<String> cafdrinks = new ArrayList<String>();
+            cafdrinks.add("Water");
+            cafdrinks.add("Coke");
+            cafdrinks.add("Diet Coke");
+            cafdrinks.add("Lemonade");
+     
+            List<String> cafstats = new ArrayList<String>();
+            cafstats.add("Daily Bread");
+            cafstats.add("Daily Soup");
+     
+            List<String> cafdinners = new ArrayList<String>();
+            cafdinners.add("New York Strip");
+            cafdinners.add("Grilled Salmon");
+            cafdinners.add("Chicken Parmesan");
+            listDataChild.put(listDataHeader.get(0), cafdrinks); // Header, Child data
+            listDataChild.put(listDataHeader.get(1), cafstats);
+            listDataChild.put(listDataHeader.get(2), cafdinners);
+        	break;
+        }
     }
 }

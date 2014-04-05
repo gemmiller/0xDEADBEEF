@@ -38,7 +38,7 @@ public class ListActivity extends Activity {
         liked = new ArrayList<View>();
         notliked = new ArrayList<View>();
         // preparing list data
-        prepareListData();
+        prepareListData(getIntent().getExtras().getString("1234"));
  
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
  
@@ -91,10 +91,10 @@ public class ListActivity extends Activity {
     /*
      * Preparing the list data
      */
-    private void prepareListData() {
+    private void prepareListData(String key) {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
- 
+        
         // Adding child data
         listDataHeader.add("Top 250");
         listDataHeader.add("Now Showing");

@@ -46,6 +46,8 @@ public class MenuItemListActivity extends FragmentActivity
      */
     private boolean mTwoPane;
     private Location loc;
+    private String lat;
+    private String longit;
     private LocationClient loc_client;
  // Milliseconds per second
     private static final int MILLISECONDS_PER_SECOND = 1000;
@@ -271,9 +273,9 @@ public class MenuItemListActivity extends FragmentActivity
     public void onLocationChanged(Location location) {
         // Report to the UI that the location was updated
     	loc = location;
-        String msg = "Updated Location: " +
-                Double.toString(location.getLatitude()) + "," +
-                Double.toString(location.getLongitude());
+    	lat = Double.toString(location.getLatitude());
+    	longit = Double.toString(location.getLongitude());
+        String msg = "Updated Location: " + lat+ "," + longit;
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 

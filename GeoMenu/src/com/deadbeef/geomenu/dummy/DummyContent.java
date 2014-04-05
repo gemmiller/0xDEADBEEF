@@ -25,10 +25,10 @@ public class DummyContent {
 
     static {
         // Add 3 sample items.
-        addItem(new DummyItem("1", "Item 1"));
-        addItem(new DummyItem("2", "Item 2"));
-        addItem(new DummyItem("3", "Item 3"));
-        addItem(new DummyItem("4", "Maude's", "(515) 555-5555", "www.bestrestauranteva.com", "-47.568, 97.126"));
+        addItem(new DummyItem("1", "Battle's Bar-B-Q", "(515) 292-1670", "218 Welch Ave, Ames IA 50014 "));
+        addItem(new DummyItem("2", "Aunt Maude's", "(515) 233-4136", "547 Main St, Ames IA 50010 "));
+        addItem(new DummyItem("3", "Cafe Beaudelaire","(515) 292-7429", "2504 E Lincoln Way, Ames IA 50010"));
+        addItem(new DummyItem("4", "The Cafe", "(515) 292-0100", "2616 Northridge Parkway, Ames IA 50010"));
     }
 
     private static void addItem(DummyItem item) {
@@ -43,26 +43,26 @@ public class DummyContent {
         public String id;
         public String content;
         public String phone;
-        public String web;
-        public String geo;
+        
+        public String address;
 
         public DummyItem(String id, String content) {
             this.id = id;
             this.content = content;
         }
         
-        public DummyItem(String id, String content, String phone, String web, String geo) {
+        public DummyItem(String id, String content, String phone, String address) {
             this.id = id;
             this.content = content;
             this.phone = phone;
-            this.web = web;
-            this.geo = geo;
+            
+            this.address = address;
         }
 
         @Override
         public String toString() {
         	if(phone != null){
-            return content +"\n" + phone + "\n" + web + "\n" + geo;
+            return content +"\n" + phone + "\n" + address;
         	}
         	else{
         		return content;
